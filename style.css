@@ -573,6 +573,77 @@ h4 {
   text-align: center;
 }
 
+/* Favorite moments: a loose wall of taped-up prints */
+
+.gallery {
+  columns: 3 16rem;
+  column-gap: 1.75rem;
+  max-width: 64rem;
+  margin-inline: auto;
+}
+
+.snap {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  break-inside: avoid;
+  margin: 0.9rem 0 1.4rem;
+  padding: 0.6rem 0.6rem 0.3rem;
+  background: var(--paper);
+  border-radius: 14px;
+  box-shadow: 0 18px 36px -26px rgba(59, 55, 64, 0.55);
+  transform: rotate(-1.4deg);
+}
+
+.snap:nth-child(even) { transform: rotate(1.2deg); }
+.snap:nth-child(3n) { transform: rotate(-0.6deg); }
+
+.snap::before {
+  content: "";
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  width: 5rem;
+  height: 1.4rem;
+  margin-left: -2.5rem;
+  background: repeating-linear-gradient(45deg, rgba(227, 154, 135, 0.5) 0 7px, rgba(242, 213, 138, 0.5) 7px 14px);
+  border-radius: 3px;
+  transform: rotate(-3deg);
+}
+
+.snap:nth-child(3n + 2)::before {
+  background: repeating-linear-gradient(45deg, rgba(127, 156, 124, 0.45) 0 7px, rgba(156, 195, 213, 0.5) 7px 14px);
+  transform: rotate(4deg);
+}
+
+.snap:nth-child(3n)::before {
+  background: repeating-linear-gradient(45deg, rgba(169, 155, 208, 0.5) 0 7px, rgba(252, 248, 243, 0.6) 7px 14px);
+}
+
+.snap img {
+  width: 100%;
+  height: auto;
+  border-radius: 9px;
+}
+
+.snap figcaption {
+  padding: 0.25rem 0.2rem 0.1rem;
+  font-family: var(--hand);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--blush-deep);
+}
+
+/* The research photo sits inside a card, so keep it calmer */
+.photo-research {
+  margin: 0.3rem 0 1.6rem;
+  transform: rotate(-1deg);
+  box-shadow: 0 14px 30px -24px rgba(59, 55, 64, 0.55);
+  border: 1px solid var(--rule);
+}
+
 /* Experience */
 
 .cases {
@@ -1019,6 +1090,30 @@ footer {
 
   .sheet .grid3 {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .gallery {
+    columns: 2;
+    column-gap: 0.9rem;
+  }
+
+  .snap {
+    padding: 0.4rem 0.4rem 0.15rem;
+    border-radius: 10px;
+    margin: 0.7rem 0 1rem;
+  }
+
+  .snap::before {
+    width: 3.4rem;
+    height: 1rem;
+    margin-left: -1.7rem;
+    top: -0.5rem;
+  }
+
+  .snap figcaption {
+    font-size: 1.1rem;
   }
 }
 
