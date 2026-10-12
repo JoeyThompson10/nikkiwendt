@@ -262,13 +262,45 @@ h1 em {
   position: relative;
 }
 
-.doodle {
-  display: block;
-  width: 100%;
-  max-width: 30rem;
-  margin: 0 auto -2.5rem;
+/* Hero photo: a soft, slightly tilted print taped to the page */
+.photo {
   position: relative;
-  z-index: 0;
+  max-width: 32rem;
+  margin: 0.5rem auto 1.75rem;
+  padding: 0.7rem 0.7rem 0.4rem;
+  background: var(--paper);
+  border-radius: 18px;
+  box-shadow: 0 22px 44px -28px rgba(59, 55, 64, 0.55);
+  transform: rotate(1.5deg);
+}
+
+.photo::before {
+  content: "";
+  position: absolute;
+  top: -0.85rem;
+  left: 50%;
+  width: 7rem;
+  height: 1.7rem;
+  margin-left: -3.5rem;
+  background: repeating-linear-gradient(45deg, rgba(127, 156, 124, 0.5) 0 8px, rgba(242, 213, 138, 0.55) 8px 16px);
+  border-radius: 3px;
+  transform: rotate(-3deg);
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.photo figcaption {
+  padding: 0.3rem 0.2rem 0.1rem;
+  font-family: var(--hand);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--blush-deep);
 }
 
 .card {
@@ -935,8 +967,8 @@ footer {
     padding-top: 1.5rem;
   }
 
-  .doodle {
-    max-width: 24rem;
+  .photo {
+    max-width: 28rem;
   }
 
   .rows,
