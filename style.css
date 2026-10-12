@@ -573,14 +573,7 @@ h4 {
   text-align: center;
 }
 
-/* Favorite moments: a loose wall of taped-up prints */
-
-.gallery {
-  columns: 3 16rem;
-  column-gap: 1.75rem;
-  max-width: 64rem;
-  margin-inline: auto;
-}
+/* Snapshots: taped-up prints */
 
 .snap {
   position: relative;
@@ -634,6 +627,58 @@ h4 {
   line-height: 1.2;
   text-align: center;
   color: var(--blush-deep);
+}
+
+/* Snapshots placed through the page */
+.snap-pair {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 38rem;
+  margin: 3rem auto 0.5rem;
+}
+
+.snap-pair .snap {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+}
+
+.snap-pair .snap:first-child { transform: rotate(-2.2deg); }
+.snap-pair .snap:last-child { transform: rotate(1.8deg); margin-top: 1.6rem; }
+
+.snap-solo {
+  display: block;
+  width: min(100%, 30rem);
+  margin: 3rem auto 2.5rem;
+  transform: rotate(-1.2deg);
+}
+
+.snap-float {
+  float: right;
+  width: 12.5rem;
+  margin: 0.4rem 0 1rem 1.5rem;
+  transform: rotate(2.2deg);
+}
+
+.snap-float figcaption { font-size: 1.15rem; }
+
+.snap-tucked {
+  display: block;
+  width: 15rem;
+  margin: 2.5rem 0 0 0.75rem;
+  transform: rotate(-3deg);
+}
+
+.snap-tucked::before {
+  background: repeating-linear-gradient(45deg, rgba(169, 155, 208, 0.5) 0 7px, rgba(252, 248, 243, 0.6) 7px 14px);
+}
+
+.prose::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* The research photo sits inside a card, so keep it calmer */
@@ -1094,10 +1139,23 @@ footer {
 }
 
 @media (max-width: 720px) {
-  .gallery {
-    columns: 2;
-    column-gap: 0.9rem;
+  .snap-pair {
+    gap: 1rem;
+    margin-top: 2.25rem;
   }
+
+  .snap-pair .snap:last-child { margin-top: 1rem; }
+
+  .snap-solo { margin: 2.25rem auto 2rem; }
+
+  .snap-float {
+    float: none;
+    display: block;
+    width: min(100%, 15rem);
+    margin: 0.2rem auto 1.4rem;
+  }
+
+  .snap-tucked { width: 13rem; margin-top: 2rem; }
 
   .snap {
     padding: 0.4rem 0.4rem 0.15rem;
